@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templo del Oráculo | Plataforma Esotérica Futurista</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Orbitron:wght@400;700&family=Plus+Jakarta+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+    <canvas id="space-particles"></canvas>
+
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-gold">TEMPLO DEL</span><span class="logo-neon">ORÁCULO</span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-item active" data-target="inicio">Inicio</a></li>
+                <li><a href="#" class="nav-item" data-target="tarotistas">Tarotistas</a></li>
+                <li><a href="#" class="nav-item" data-target="reservas">Reservas</a></li>
+                <li><a href="#" class="nav-item" data-target="eventos">Eventos</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle" id="mobile-menu-btn">
+            <span></span><span></span><span></span>
+        </div>
+    </header>
+
+    <main class="main-content">
+
+        <section id="inicio" class="content-section active">
+            <div class="hero">
+                <div class="hero-badge">CONVERGENCIA ANUNNAKI & CYBERPUNK</div>
+                <h1 class="hero-title">El Futuro de la <br><span class="text-gradient">Sabiduría Ancestral</span></h1>
+                <p class="hero-subtitle">Conecta con las deidades del Antiguo Egipto, la mitología clásica y las frecuencias del espacio profundo a través de tecnología cuántica.</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="navigateTo('tarotistas')">Consultar el Oráculo</button>
+                    <button class="btn btn-secondary" onclick="navigateTo('eventos')">Ver Convergencias</button>
+                </div>
+            </div>
+
+            <div class="preview-cards">
+                <div class="tarot-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-glow-gold"></div>
+                            <div class="card-symbol">Ⅰ</div>
+                            <h3>EL MAGO</h3>
+                            <p>Tecnología Divina</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tarot-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-glow-purple"></div>
+                            <div class="card-symbol">ⅩⅣ</div>
+                            <h3>TEMPLANZA</h3>
+                            <p>Equilibrio Cósmico</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tarotistas" class="content-section">
+            <h2 class="section-title">Maestros del <span class="text-gradient">Nexo Cuántico</span></h2>
+            <div class="grid-container">
+                <div class="profile-card">
+                    <div class="profile-avatar avatar-magocristo"></div>
+                    <div class="profile-info">
+                        <h3>MagoCristo</h3>
+                        <p class="specialty">Alta Magia Romana & Ciencia de Datos Astral</p>
+                        <p class="bio-summary">Especialista en fusionar el estoicismo y la mitología romana con matrices avanzadas de predicción cuántica y Tarot hermético.</p>
+                        <div class="profile-meta">
+                            <span class="schedule">⏰ 18:00 - 22:00 UTC</span>
+                        </div>
+                        <button class="btn btn-primary btn-block" onclick="openBooking('MagoCristo')">Reservar Hora</button>
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <div class="profile-avatar avatar-bastet"></div>
+                    <div class="profile-info">
+                        <h3>Bastet</h3>
+                        <p class="specialty">Tarot Egipcio & Conexión Felina Espacial</p>
+                        <p class="bio-summary">Invocando la energía protectora de la mitología egipcia, utiliza interfaces de luz de neón para revelar hilos ocultos en el plano espiritual.</p>
+                        <div class="profile-meta">
+                            <span class="schedule">⏰ 14:00 - 20:00 UTC</span>
+                        </div>
+                        <button class="btn btn-primary btn-block" onclick="openBooking('Bastet')">Reservar Hora</button>
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <div class="profile-avatar avatar-abata"></div>
+                    <div class="profile-info">
+                        <h3>AbataQuamtun</h3>
+                        <p class="specialty">Canalización Anunnaki & Geometría Sagrada</p>
+                        <p class="bio-summary">Emisario de las frecuencias de los antiguos bloques sumerios. Trabaja el espacio profundo para reconfigurar el presente.</p>
+                        <div class="profile-meta">
+                            <span class="schedule">⏰ 10:00 - 16:00 UTC</span>
+                        </div>
+                        <button class="btn btn-primary btn-block" onclick="openBooking('AbataQuamtun')">Reservar Hora</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reservas" class="content-section">
+            <h2 class="section-title">Agendar <span class="text-gradient">Sintonía Espacial</span></h2>
+            <div class="booking-wrapper">
+                <div class="booking-card">
+                    <div class="form-group">
+                        <label for="booking-expert">Maestro Seleccionado</label>
+                        <select id="booking-expert">
+                            <option value="MagoCristo">MagoCristo</option>
+                            <option value="Bastet">Bastet</option>
+                            <option value="AbataQuamtun">AbataQuamtun</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Selecciona un Vector Temporal (Fecha)</label>
+                        <div class="mock-calendar">
+                            <div class="calendar-day disabled">11</div>
+                            <div class="calendar-day disabled">12</div>
+                            <div class="calendar-day active-day" onclick="selectDay(this)">13</div>
+                            <div class="calendar-day" onclick="selectDay(this)">14</div>
+                            <div class="calendar-day" onclick="selectDay(this)">15</div>
+                            <div class="calendar-day" onclick="selectDay(this)">16</div>
+                            <div class="calendar-day" onclick="selectDay(this)">17</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Bloque de Transmisión (Hora)</label>
+                        <div class="time-slots">
+                            <div class="time-slot" onclick="selectTime(this)">10:00 UTC</div>
+                            <div class="time-slot active-time" onclick="selectTime(this)">14:30 UTC</div>
+                            <div class="time-slot" onclick="selectTime(this)">19:00 UTC</div>
+                            <div class="time-slot" onclick="selectTime(this)">21:30 UTC</div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-block" onclick="triggerSimulation()">Confirmar Enlace Cuántico</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="eventos" class="content-section">
+            <h2 class="section-title">Próximas <span class="text-gradient">Convergencias</span></h2>
+            <div class="events-list">
+                <div class="event-item">
+                    <div class="event-date"><span>24</span>JUN</div>
+                    <div class="event-details">
+                        <h3>Alineación de Portales Anunnaki y la Luna de Sangre</h3>
+                        <p>Ritual de meditación masiva telemática sincronizada con frecuencias de sonido de 432Hz.</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date"><span>08</span>JUL</div>
+                    <div class="event-details">
+                        <h3>Desbloqueo de la Matriz del Tarot Egipcio</h3>
+                        <p>Masterclass exclusiva sobre la geometría sagrada y flujos de energía ocultos en los arcanos mayores.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h3>TEMPLO DEL ORÁCULO</h3>
+                <p>Plataforma experimental de vanguardia que combina mitologías ancestrales y horizontes futuristas de la Web3.</p>
+            </div>
+            <div>
+                <h4>Enlaces al Nexo</h4>
+                <p>Soporte Técnico Cuántico<br>Términos del Servicio Holográfico</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Templo del Oráculo — Todos los derechos reservados a través del tiempo y el espacio.
+        </div>
+    </footer>
+
+    <div id="simulation-modal" class="modal">
+        <div class="modal-content">
+            <h3 class="text-gradient">¡Enlace Exitoso!</h3>
+            <p id="modal-text">Tu cita ha sido agendada en la matriz.</p>
+            <button class="btn btn-secondary" onclick="closeModal()">Cerrar Portal</button>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

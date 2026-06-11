@@ -1,0 +1,601 @@
+/* ==========================================================================
+   VARIABLES Y CONFIGURACIÓN GLOBAL (Paleta Cyberpunk-Esotérica Premium)
+   ========================================================================== */
+:root {
+    --bg-space: #050508;
+    --gold-ancient: #dfb257;
+    --blue-electric: #00e5ff;
+    --purple-cosmic: #8a2be2;
+    --neon-turquoise: #00f5d4;
+    --card-bg: rgba(15, 15, 25, 0.75);
+    --border-glass: rgba(223, 178, 87, 0.2);
+    --font-cyber: 'Orbitron', sans-serif;
+    --font-serif: 'Cinzel', serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-space);
+    color: #f0f0f5;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Canvas de fondo fijo */
+#space-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: radial-gradient(circle at center, #0c0a1a 0%, #050508 100%);
+}
+
+/* ==========================================================================
+   MENÚ SUPERIOR FIJO (Glassmorphism & Neon Shadows)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(5, 5, 8, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 229, 255, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+}
+
+.logo {
+    font-family: var(--font-cyber);
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+}
+
+.logo-gold { color: var(--gold-ancient); margin-right: 8px; }
+.logo-neon {
+    color: var(--blue-electric);
+    text-shadow: 0 0 10px var(--blue-electric);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #a0a0b0;
+    font-family: var(--font-cyber);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.nav-item:hover, .nav-item.active {
+    color: var(--neon-turquoise);
+    text-shadow: 0 0 8px var(--neon-turquoise);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background-color: var(--gold-ancient);
+    transition: all 0.3s;
+}
+
+/* ==========================================================================
+   SISTEMA DE NAVEGACIÓN SPA (Secciones Dinámicas)
+   ========================================================================== */
+.main-content {
+    margin-top: 80px;
+    min-height: calc(100vh - 80px - 220px);
+    padding: 4rem 5%;
+}
+
+.content-section {
+    display: none;
+    animation: fadeIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.content-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   DISEÑO VISUAL: HERO PRINCIPAL ANIMADO
+   ========================================================================== */
+.text-gradient {
+    background: linear-gradient(45deg, var(--gold-ancient), var(--blue-electric));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.hero {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(138, 43, 226, 0.15);
+    border: 1px solid var(--purple-cosmic);
+    border-radius: 50px;
+    font-family: var(--font-cyber);
+    font-size: 0.75rem;
+    color: #e0b0ff;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: #a0a0c0;
+    margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* Botones con Efecto UI Premium */
+.btn {
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-family: var(--font-cyber);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--gold-ancient), #b8860b);
+    color: #050508;
+    border: none;
+    box-shadow: 0 4px 15px rgba(223, 178, 87, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(223, 178, 87, 0.5);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--blue-electric);
+    border: 1px solid var(--blue-electric);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.1);
+}
+
+.btn-secondary:hover {
+    background: rgba(0, 229, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-block { width: 100%; margin-top: 1rem; }
+
+/* ==========================================================================
+   CARTAS DE TAROT (Efectos Hover Estilo Oráculo)
+   ========================================================================== */
+.preview-cards {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.tarot-card {
+    width: 200px;
+    height: 320px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.tarot-card:hover .card-inner {
+    transform: rotateY(15deg) rotateX(5deg) scale(1.05);
+}
+
+.card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 18, 0.95);
+    border: 2px solid var(--gold-ancient);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.card-glow-gold {
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(223,178,87,0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+.card-glow-purple {
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(138,43,226,0.2) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.card-symbol {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--gold-ancient);
+    text-shadow: 0 0 10px rgba(223,178,87,0.4);
+}
+
+.card-front h3 {
+    font-family: var(--font-cyber);
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+}
+
+.card-front p {
+    font-size: 0.75rem;
+    color: #777799;
+}
+
+/* ==========================================================================
+   TARJETAS DE TAROTISTAS (GRID & RESPONSIVE)
+   ========================================================================== */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.profile-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-glass);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.profile-card:hover {
+    border-color: var(--blue-electric);
+    box-shadow: 0 15px 35px rgba(0, 229, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+/* Base de configuración para los contenedores de los retratos */
+.profile-avatar {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-bottom: 2px solid rgba(223, 178, 87, 0.2);
+}
+
+/* Asignación limpia de tus rutas de imágenes reales corregidas */
+.avatar-magocristo { 
+    background-image: url('../img/el_mago_tarot.jpg'); 
+}
+
+.avatar-bastet { 
+    background-image: url('../img/bastet_martina.jpg'); 
+}
+
+.avatar-abata { 
+    background-image: url('../img/abata.webp'); 
+}
+
+.profile-info {
+    padding: 2rem;
+}
+
+.profile-info h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+    color: #fff;
+}
+
+.specialty {
+    font-size: 0.85rem;
+    color: var(--blue-electric);
+    font-family: var(--font-cyber);
+    margin-bottom: 1rem;
+}
+
+.bio-summary {
+    font-size: 0.9rem;
+    color: #a0a0c0;
+    margin-bottom: 1.5rem;
+    height: 70px;
+    overflow: hidden;
+}
+
+.profile-meta {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--gold-ancient);
+    font-family: var(--font-cyber);
+}
+
+/* ==========================================================================
+   SISTEMA DE RESERVAS SIMULADAS
+   ========================================================================== */
+.booking-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.booking-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-glass);
+    padding: 2.5rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 550px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-family: var(--font-cyber);
+    font-size: 0.8rem;
+    color: #a0a0c0;
+    margin-bottom: 0.5rem;
+}
+
+.form-group select {
+    width: 100%;
+    background: #0a0a12;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 12px;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.mock-calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    background: rgba(0,0,0,0.4);
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.calendar-day {
+    text-align: center;
+    padding: 10px 0;
+    background: rgba(255,255,255,0.02);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    border-radius: 2px;
+}
+
+.calendar-day:hover:not(.disabled) {
+    background: var(--purple-cosmic);
+}
+
+.calendar-day.active-day {
+    background: var(--gold-ancient);
+    color: #000;
+    font-weight: bold;
+}
+
+.calendar-day.disabled {
+    opacity: 0.15;
+    cursor: not-allowed;
+}
+
+.time-slots {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.time-slot {
+    text-align: center;
+    padding: 10px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    cursor: pointer;
+    font-family: var(--font-cyber);
+    font-size: 0.8rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.time-slot:hover {
+    border-color: var(--blue-electric);
+}
+
+.time-slot.active-time {
+    background: rgba(0, 229, 255, 0.1);
+    border-color: var(--blue-electric);
+    color: var(--blue-electric);
+}
+
+/* ==========================================================================
+   SECCIONES DE EVENTOS
+   ========================================================================== */
+.events-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.event-item {
+    display: flex;
+    background: var(--card-bg);
+    border-left: 4px solid var(--gold-ancient);
+    margin-bottom: 1.5rem;
+    border-top: 1px solid var(--border-glass);
+    border-right: 1px solid var(--border-glass);
+    border-bottom: 1px solid var(--border-glass);
+    border-radius: 0 8px 8px 0;
+}
+
+.event-date {
+    background: rgba(223, 178, 87, 0.08);
+    padding: 1.5rem;
+    font-family: var(--font-cyber);
+    text-align: center;
+    font-size: 0.75rem;
+    min-width: 95px;
+}
+
+.event-date span {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--gold-ancient);
+}
+
+.event-details { padding: 1.5rem; }
+.event-details h3 { font-family: var(--font-serif); margin-bottom: 0.5rem; color: #fff; }
+
+/* ==========================================================================
+   MODALES DE SIMULACIÓN INTERACTIVA
+   ========================================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(5, 5, 8, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #0b0b14;
+    border: 2px solid var(--blue-electric);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 450px;
+    box-shadow: 0 0 35px rgba(0, 229, 255, 0.3);
+}
+
+.modal-content h3 { font-family: var(--font-cyber); font-size: 1.4rem; margin-bottom: 1rem; }
+.modal-content p { margin-bottom: 2rem; color: #a0a0c0; font-size: 0.95rem; }
+
+/* ==========================================================================
+   FOOTER PROFESIONAL
+   ========================================================================== */
+.footer {
+    background: #030305;
+    border-top: 1px solid rgba(255,255,255,0.03);
+    padding: 4rem 5% 2rem 5%;
+    margin-top: 4rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.footer h3 { font-family: var(--font-cyber); color: var(--gold-ancient); margin-bottom: 1.2rem; font-size: 1.1rem; }
+.footer h4 { font-family: var(--font-cyber); margin-bottom: 1.2rem; font-size: 1rem; }
+.footer p { font-size: 0.85rem; color: #666677; }
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #444455;
+    border-top: 1px solid rgba(255,255,255,0.02);
+    padding-top: 2rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN & ADAPTABILIDAD (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px; left: 0; width: 100%;
+        background: rgba(5, 5, 8, 0.95);
+        padding: 2rem;
+        gap: 1.5rem;
+        border-bottom: 1px solid rgba(0, 229, 255, 0.15);
+        text-align: center;
+    }
+    .nav-links.mobile-active { display: flex; }
+    .menu-toggle { display: flex; }
+    .hero-title { font-size: 2.4rem; }
+    .section-title { font-size: 2rem; }
+    .event-item { flex-direction: column; }
+    .event-date { min-width: 100%; border-bottom: 1px solid rgba(255,255,255,0.05); }
+}
